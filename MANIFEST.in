@@ -1,0 +1,15 @@
+# include the bundled sqlite DB in the python package
+include python-package/employee_events/employee_events.db
+
+# include all python package sources under python-package/employee_events
+recursive-include python-package/employee_events *.py
+
+# include report package sources (so dashboard/report code is packaged)
+recursive-include report *.py
+
+# include the pre-trained model used by the dashboard
+include report/assets/model.pkl
+
+# include README, license etc. if present
+include README.md
+include LICENSE
