@@ -7,4 +7,6 @@ pandas==2.2.3
 pytest
 flake8
 ipython
+uvicorn
+sqlite_minutils
 
