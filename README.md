@@ -79,3 +79,16 @@ erDiagram
   employee ||--o{ employee_events : "employee_id"
   notes }o--o{ employee_events : ""
 ```
+
+How to review the dashboard (quick)
+Install from provided source distribution: python -m venv venv_review .\venv_review\Scripts\Activate.ps1 pip install --upgrade pip pip install dist/employee_events_pkg-0.1.0.tar.gz
+
+Quick sanity check: python -c "from employee_events.employee import Employee; print('len:', len(Employee().names()))"
+
+Expect: 25
+Start the dashboard: pip install uvicorn python-fasthtml uvicorn report.dashboard:app Open http://127.0.0.1:8000/
+
+Notes:
+
+The package bundles employee_events.db and report/assets/model.pkl.
+If you get "Model or data not available", ensure the environment variable EMP_EVENTS_DB is not overriding the path.
